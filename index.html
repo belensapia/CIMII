@@ -1,0 +1,111 @@
+<!DOCTYPE html >
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Fiuba Social</title>
+
+		<link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
+
+		<!-- css -->
+        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" />
+        <link href="css/bootstrap-glyphicons.css" rel="stylesheet">
+
+		<!-- js -->
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <!-- para el chat con angular.js -->
+        <link href="css/chat.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+        
+        <script type="text/javascript">
+            var fiuba = angular.module("fiuba", []);
+        </script>
+
+        <script src="js/controllers/ChatController.js"></script>
+        <script src="js/controllers/NewsController.js"></script>
+    </head>
+
+    <body ng-app="fiuba">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Fiuba CIM II</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html" ><i class="glyphicon glyphicon-home"></i></a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/adminConfig/index">System</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/adminUser/index">Users</a></li>
+                                <li><a href="/adminPermission/index">User Permissions</a></li>
+                                <li><a href="/adminRole/index">User Roles</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="glyphicon glyphicon-user"></i>
+                                Administrador
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Mi cuenta</a></li>
+                                <li><a href="#">Configuración</a></li>
+                                <li><a href="login.html">Salir</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+            </div>
+        </nav>
+
+        <!-- Contenido  -->
+        <div class="container">
+            
+			<div class="row">
+				<div class="col-md-3">
+					<ul class="nav nav-pills nav-stacked">
+						<li><a href="linea.html">Lineas</a></li>
+						<li><a href="">Reportes</a></li>
+						<li><a href="">Estadísticas</a></li>
+						<li><a href="">SUBE</a></li>
+										
+					</ul>
+				</div>		
+
+				<div class="col-md-8">
+					<div class="jumbotron">
+						<h1>Bienvenido</h1>
+						<p>Sistema de Transporte</p>
+						<p>
+							<a class="btn btn-primary btn-lg">
+								Mas información
+							</a>
+						</p>
+					</div>
+
+                    <div ng-controller="NewsController">
+    					<h2>Novedades</h2>
+    					<div id="news-feed">
+    						
+    					</div>
+				    </div>
+                </div>
+		    </div>
+        </div>
+
+        <div id="footer" style="height: 50px;">            
+        </div>
+    </body>
+</html>
