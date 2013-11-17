@@ -9,24 +9,22 @@
 		<!-- css -->
         <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" />
         <link href="css/bootstrap-glyphicons.css" rel="stylesheet">
-
+		<link href="css/bootstrap-fileupload.css" rel="stylesheet">
+		<link href="css/jquery.fileupload.css" rel="stylesheet" >
+		
 		<!-- js -->
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap-fileupload.js"></script>
 
-        <!-- para el chat con angular.js -->
+		<!-- Para el chat -->
         <link href="css/chat.css" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-        
-        <script type="text/javascript">
-            var fiuba = angular.module("fiuba", []);
-        </script>
-
-        <script src="js/controllers/ChatController.js"></script>
-        <script src="js/controllers/NewsController.js"></script>
+        <script src="js/jquery-tmpl.js"></script>
+        <script src="js/chat.js"></script>
+		
     </head>
 
-    <body ng-app="fiuba">
+    <body>
         <nav class="navbar navbar-default" role="navigation">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -37,6 +35,8 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+                
                     <ul class="nav navbar-nav">
                         <li><a href="index.html" ><i class="glyphicon glyphicon-home"></i></a></li>
                         <li class="dropdown">
@@ -62,7 +62,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="#">Mi cuenta</a></li>
                                 <li><a href="#">Configuración</a></li>
-                                <li><a href="login.html">Salir</a></li>
+                                <li><a href="#">Salir</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -72,37 +72,86 @@
 
         <!-- Contenido  -->
         <div class="container">
-            
-			<div class="row">
-				<div class="col-md-3">
-					<ul class="nav nav-pills nav-stacked">
-						<li><a href="linea.html">Lineas</a></li>
-						<li><a href="reportes.html">Reportes</a></li>
-						<li><a href="">Estadísticas</a></li>
-						<li><a href="sube.html">SUBE</a></li>
-										
-					</ul>
-				</div>		
+		
+<div class="row">
+	<div class="col-md-3">
+		<ul class="nav nav-pills nav-stacked">
+			<li><a href="linea.html">Lineas</a></li>
+			<li><a href="reportes.html">Reportes</a></li>
+			<li><a href="">Estadísticas</a></li>
+			<li class="active"><a href="sube.html">SUBE</a></li>
+						
+		</ul>
 
-				<div class="col-md-8">
-					<div class="jumbotron">
-						<h1>Bienvenido</h1>
-						<p>Prototipo de sistema automatizado de transporte público. Seleccione alguna opción del menú de la derecha para continuar.</p>
-						<p>Desarrollado por Diego Sisto y Belén Sapia</p>
-					</div>
+	</div>			
+	<div class="col-md-8">
+		<div class="page-header">
+			<h1>Próximos colectivos</h1>
+		</div>
 
-                    <div ng-controller="NewsController">
-    					<h2>Novedades</h2>
-    					<div id="news-feed">
-							<div class="alert alert-success alert-dismissable">La duración promedio del recorrido total cayó un 10% respecto del mismo día de la semana pasada</div>
-							<div class="alert alert-warning alert-dismissable">Hay una <a href="reportes.html">unidad</a> con más de 20 pasajeros</div>
-    					</div>
-				    </div>
+		<h3>Desde Sánchez De Bustamante y Coronel Lacarra</h3>
+		
+		<form class="form-horizontal">
+		<fieldset>
+		<div class="control-group">
+            <table class="table table-striped table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        <th>Tiempo estimado</th>
+						<th>Carga estimada</th>
+                        <th>Otros datos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>3' 12''</td>
+                        <td>25</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>4' 03''</td>
+                        <td>3</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>15' 42''</td>
+                        <td>5</td>
+                        <td>Unidad con rampa para discapacitados</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+		</fieldset>
+</form>
+	</div>
+</div>
+
+<div class="modal fade" id="dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Modal title</h4>
+                        </div>
+                        <div class="modal-body"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="modal-save">Save changes</button>
+                        </div>
+                    </div>
                 </div>
-		    </div>
+            </div>
+
         </div>
 
-        <div id="footer" style="height: 50px;">            
+		
+		
+        <div id="footer" style="height: 50px;">
+            
         </div>
+
+
+
     </body>
 </html>
