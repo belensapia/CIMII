@@ -24,6 +24,37 @@
 
         <script src="js/controllers/ChatController.js"></script>
         <script src="js/controllers/NewsController.js"></script>
+
+      <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization',
+       'version':'1','packages':['timeline']}]}"></script>
+        <script type="text/javascript">
+
+        google.setOnLoadCallback(drawChart);
+        function drawChart() {
+
+          var container = document.getElementById('example5.1');
+          var chart = new google.visualization.Timeline(container);
+          var dataTable = new google.visualization.DataTable();
+          dataTable.addColumn({ type: 'string', id: 'Room' });
+          dataTable.addColumn({ type: 'string', id: 'Name' });
+          dataTable.addColumn({ type: 'date', id: 'Start' });
+          dataTable.addColumn({ type: 'date', id: 'End' });
+          dataTable.addRows([
+            [ 'Linea 100 - Unidad 1', 'Origen - Destino',       new Date(0,0,0,12,0,0),  new Date(0,0,0,13,4,0) ],
+            [ 'Linea 100 - Unidad 2', 'Origen - Destino',       new Date(0,0,0,12,10,0),  new Date(0,0,0,14,0,0) ],
+            [ 'Linea 100 - Unidad 3', 'Origen - Destino',       new Date(0,0,0,12,15,0),  new Date(0,0,0,13,50,0) ],
+            [ 'Linea 100 - Unidad 4', 'Origen - Destino',       new Date(0,0,0,12,30,0),  new Date(0,0,0,14,10,0) ],
+
+        ]);
+
+          var options = {
+            timeline: { colorByRowLabel: true }
+          };
+
+          chart.draw(dataTable, options);
+        }
+
+        </script>
     </head>
 
     <body ng-app="fiuba">
@@ -77,8 +108,10 @@
 					<div class="page-header">
 						<h1>Reportes</h1>
 					</div>
-					
-					<img src="img/prototipo.png" alt="Línea 100" />
+                    <h3>Tiempo total del recorrido</h3>
+					<div id="example5.1" style="width: 800px; height: 300px"></div>
+                	<img src="img/prototipo.png" alt="Línea 100" />
+
                 </div>
 		    </div>
         </div>
